@@ -1,0 +1,32 @@
+default:
+  formatter:
+    name: progress
+  paths:
+    features: features
+  #context:
+    #class:  Acme\DemoBundle\Features\Context\FeatureContext
+  extensions:
+    Behat\Symfony2Extension\Extension:
+      mink_driver: true
+      kernel:
+        env: test
+        debug: true
+    Behat\MinkExtension\Extension:
+      base_url: 'http://mink.symfony.local/app_dev.php/'
+      default_session: symfony2
+      goutte: ~
+      selenium2: ~
+      show_cmd: google-chrome %s
+      javascript_session:  'selenium2'
+
+user:
+    # ...
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            bundle: AcmeDemoBundle
+
+group:
+    # ...
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            bundle: AcmeDemoBundle
